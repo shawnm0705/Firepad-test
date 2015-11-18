@@ -30,8 +30,8 @@
 	<center>
 		<h1 style="margin-bottom:50px;">Hello, <?php echo $_SESSION["username"];?>!</h1>
 		<h3>Here are all the firepads</h3>
-		<a href="./firepad.php?id=001">First Firepad</a><br/>
-		<a href="./firepad.php?id=002">Second Firepad</a>
+		<a href="./firepad.php?id=1">First Firepad</a><br/>
+		<a href="./firepad.php?id=2">Second Firepad</a>
 	</center>
 	<script type="text/javascript" src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.4/js/bootstrap.min.js"></script>
 </body>
