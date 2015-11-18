@@ -1,3 +1,6 @@
+<?php
+  session_start();
+?>
 <!doctype html>
 <!-- See http://www.firepad.io/docs/ for detailed embedding docs. -->
 <html>
@@ -36,8 +39,8 @@
 </head>
 
 <body>
-  <div id="userlist"></div>
-  <div id="firepad"></div>
+    <div id="userlist"></div>
+    <div id="firepad"></div>
 
   <script>
     function init() {
@@ -50,7 +53,7 @@
       var codeMirror = CodeMirror(document.getElementById('firepad'), { lineWrapping: true });
 
       // Create a random ID to use as our user ID (we must give this to firepad and FirepadUserList).
-      var userId = Math.floor(Math.random() * 9999999999).toString();
+      var userId = <?php echo $_SESSION["userid"]?>;
 
       //// Create Firepad (with rich text features and our desired userId).
       var firepad = Firepad.fromCodeMirror(firepadRef, codeMirror,
@@ -67,7 +70,7 @@
         }
       });
     }
-/*
+
     // Helper to get hash from end of URL or generate a random one.
     function getExampleRef() {
       var ref = new Firebase('https://torrid-fire-1022.firebaseio.com');
@@ -82,7 +85,7 @@
         console.log('Firebase data: ', ref.toString());
       return ref;
     }
-*/
+
     init();
   </script>
 </body>
