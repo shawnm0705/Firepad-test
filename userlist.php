@@ -47,15 +47,19 @@
       //// Initialize Firebase.
       //var firepadRef = getExampleRef();
       // TODO: Replace above line with:
+      //++++++++++ Initial my firebase ++++++++++
       var firebase = 'https://torrid-fire-1022.firebaseio.com/firepad/' + <?php echo $_GET["firepad_id"];?>;
       var firepadRef = new Firebase(firebase);
+      //----------
 
       //// Create CodeMirror (with lineWrapping on).
       var codeMirror = CodeMirror(document.getElementById('firepad'), { lineWrapping: true });
 
       // Create a random ID to use as our user ID (we must give this to firepad and FirepadUserList).
+      //++++++++++ Get userId(have to be string) & userName ++++++++++
       var userId = <?php echo $_SESSION["userid"];?>;
       userId = userId.toString();
+
 
       //// Create Firepad (with rich text features and our desired userId).
       <?php 
@@ -68,30 +72,15 @@
       //// Create FirepadUserList (with our desired userId).
       var firepadUserList = FirepadUserList.fromDiv(firepadRef.child('users'),
           document.getElementById('userlist'), userId, userName);
-
+      //----------
       //// Initialize contents.
       firepad.on('ready', function() {
         if (firepad.isHistoryEmpty()) {
-          firepad.setText('Check out the user list to the left!');
+          firepad.setText('Welcome to Intersective Firepad!');
         }
       });
     }
-/*
-    // Helper to get hash from end of URL or generate a random one.
-    function getExampleRef() {
-      var ref = new Firebase('https://torrid-fire-1022.firebaseio.com');
-      var hash = window.location.hash.replace(/#/g, '');
-      if (hash) {
-        ref = ref.child(hash);
-      } else {
-        ref = ref.push(); // generate unique location.
-        window.location = window.location + '#' + ref.key(); // add it as a hash to the URL.
-      }
-      if (typeof console !== 'undefined')
-        console.log('Firebase data: ', ref.toString());
-      return ref;
-    }
-*/
+
     init();
   </script>
 </body>
