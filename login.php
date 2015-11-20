@@ -10,6 +10,9 @@
 		}elseif($_POST["username"] == 'karam' && $_POST["password"] == 'karam'){
 			$username = 'Karam';
 			$userid = 003;
+		}elseif($_POST["username"] == 'natasha' && $_POST["password"] == 'natasha'){
+			$username = 'Natasha';
+			$userid = 004;
 		}else{
 			header("Location: ./index.php"); 
 			exit();
